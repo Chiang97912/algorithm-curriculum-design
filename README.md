@@ -62,7 +62,7 @@ end if
 # 最大总和问题
 
 我们使用动态规划算法，把当前位置(i, j)看成一个状态，然后定义指标函数d(i, j)为从格子(i, j)出发的能得到的最大的和（包括其本身），我们以数塔的最后一层值为初始条件并从倒数第二层开始计算，那么本题就转化成了求d(1,1)。算法的状态转移方程如下所示：
-{d_{(i,j)}}{\rm{  =  valu}}{{\rm{e}}_{(i,j){\rm{  +  }}}}\max \{ {d_{(i + 1,j)j}},{\rm{ }}{{\rm{d}}_{(i + 1,j + 1)}}\}
+<a href="https://www.codecogs.com/eqnedit.php?latex={d_{(i,j)}}{\rm{&space;=&space;valu}}{{\rm{e}}_{(i,j){\rm{&space;&plus;&space;}}}}\max&space;\{&space;{d_{(i&space;&plus;&space;1,j)j}},{\rm{&space;}}{{\rm{d}}_{(i&space;&plus;&space;1,j&space;&plus;&space;1)}}\}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?{d_{(i,j)}}{\rm{&space;=&space;valu}}{{\rm{e}}_{(i,j){\rm{&space;&plus;&space;}}}}\max&space;\{&space;{d_{(i&space;&plus;&space;1,j)j}},{\rm{&space;}}{{\rm{d}}_{(i&space;&plus;&space;1,j&space;&plus;&space;1)}}\}" title="{d_{(i,j)}}{\rm{ = valu}}{{\rm{e}}_{(i,j){\rm{ + }}}}\max \{ {d_{(i + 1,j)j}},{\rm{ }}{{\rm{d}}_{(i + 1,j + 1)}}\}" /></a>
 
 伪代码：
 
@@ -111,15 +111,7 @@ return d
 <center>初始化得分矩阵</center>
 
 （2）首先我们确定状态转移方程
-$$
-F_{ij} = max of \left\{
-\begin{array}{lr}
-F_{i-1,j-1}+S(x_i, y_j)\qquad(左侧和上面的字符比对)\\
-F_{i-1,j}+S(x_{i-1}, '-')\qquad(上面的字符和空格比对)\\
-F_{i,j-1}+S('-', y_{j-1})\qquad(左侧的字符和空格比对)\\
-\end{array}
-\right.
-$$
+<a href="https://www.codecogs.com/eqnedit.php?latex=F_{ij}&space;=&space;max&space;of&space;\left\{&space;\begin{array}{lr}&space;F_{i-1,j-1}&plus;S(x_i,&space;y_j)\qquad(左侧和上面的字符比对)\\&space;F_{i-1,j}&plus;S(x_{i-1},&space;'-')\qquad(上面的字符和空格比对)\\&space;F_{i,j-1}&plus;S('-',&space;y_{j-1})\qquad(左侧的字符和空格比对)\\&space;\end{array}&space;\right." target="_blank"><img src="https://latex.codecogs.com/gif.latex?F_{ij}&space;=&space;max&space;of&space;\left\{&space;\begin{array}{lr}&space;F_{i-1,j-1}&plus;S(x_i,&space;y_j)\qquad(左侧和上面的字符比对)\\&space;F_{i-1,j}&plus;S(x_{i-1},&space;'-')\qquad(上面的字符和空格比对)\\&space;F_{i,j-1}&plus;S('-',&space;y_{j-1})\qquad(左侧的字符和空格比对)\\&space;\end{array}&space;\right." title="F_{ij} = max of \left\{ \begin{array}{lr} F_{i-1,j-1}+S(x_i, y_j)\qquad(左侧和上面的字符比对)\\ F_{i-1,j}+S(x_{i-1}, '-')\qquad(上面的字符和空格比对)\\ F_{i,j-1}+S('-', y_{j-1})\qquad(左侧的字符和空格比对)\\ \end{array} \right." /></a>
 然后根据状态转移方程开始从第二行中的第二列，通过矩阵一行一行移动，计算每个位置的分数。得分被计算为从现有的分数可能的最佳得分的左侧，顶部或左上方（对角线）。当一个得分从顶部计算，或从左边这代表在我们的对准的插入缺失。当我们从对角线计算分数这表示两个字母所得位置匹配的对准。
 
 （3）通过步骤（2）我们可以得到得分矩阵，得分矩阵的最后一个值即为我们所求答案，然后我们可以通过得分矩阵进行回溯得到对齐的两个字符串序列。
