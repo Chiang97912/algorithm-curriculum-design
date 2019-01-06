@@ -1,0 +1,1 @@
+python maximum_sum_problem.py < data.txt
